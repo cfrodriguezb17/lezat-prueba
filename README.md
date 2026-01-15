@@ -138,3 +138,33 @@ Lezat/
 │   └── package.json
 └── README.md
 ```
+
+## 🚀 Despliegue
+
+Tienes dos formas principales de desplegar este proyecto:
+
+### Opción A: Despliegue en la Nube (Recomendado)
+
+Esta es la opción más sencilla para aplicaciones modernas:
+
+- **Frontend**: Despliega en **Vercel** o **Netlify**. Solo tienes que conectar tu repositorio y apuntar a la carpeta `task-app-frontend`.
+- **Backend**: Despliega en **Railway** o **Render**. Conecta tu repo y apunta a la carpeta `task-app-backend`.
+- **Base de Datos**: Usa **Railway PostgreSQL** o **Supabase**.
+
+### Opción B: Servidor Propio (VPS) con Docker
+
+Si tienes un servidor (DigitalOcean, AWS, Linode):
+
+1.  Instala Docker y Git en tu servidor.
+2.  Clona tu repositorio:
+    ```bash
+    git clone https://github.com/tu-usuario/nombre-repo.git
+    cd nombre-repo
+    ```
+3.  Crea el archivo `.env` con tu `GOOGLE_AI_API_KEY`.
+4.  Levanta todo con un comando:
+    ```bash
+    docker-compose up -d --build
+    ```
+
+El flag `-d` hará que la aplicación corra en segundo plano permanentemente.
