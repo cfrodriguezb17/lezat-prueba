@@ -4,30 +4,34 @@ Una aplicación de gestión de tareas con inteligencia artificial integrada.
 
 ## 🚀 Quick Start (Docker)
 
-La forma más rápida de ejecutar la aplicación es utilizando Docker Compose.
+Sigue estos pasos para tener la aplicación funcionando en minutos.
 
-1.  Asegúrate de tener Docker y Docker Compose instalados.
-2.  **Configuración de IA (Opcional pero recomendado):**
+### 1. Configurar la API de Google AI (Recomendado)
 
-    Para habilitar las funciones de inteligencia artificial (resúmenes, priorización), necesitas una API Key de Google Gemini.
+Para que las funciones de IA (resúmenes, autocompletado) funcionen, necesitas una Google API Key:
 
-    - Obtén tu clave gratis aquí: [Google AI Studio](https://aistudio.google.com/app/apikey)
-    - Crea un archivo llamado `.env` en la carpeta raíz del proyecto (`Lezat/`) y pega tu clave:
+- **Obtén tu clave:** [Google AI Studio](https://aistudio.google.com/app/apikey) (es gratis).
+- **Crea el archivo:** En la raíz del proyecto (`Lezat/`), crea un archivo llamado `.env`.
+- **Pega tu clave:** Dentro del archivo `.env`, escribe lo siguiente:
+  ```bash
+  GOOGLE_AI_API_KEY=tu_clave_aqui_sin_comillas
+  ```
 
-    ```bash
-    GOOGLE_AI_API_KEY=tu_clave_que_empieza_con_AIzr...
-    ```
+### 2. Iniciar la aplicación
 
-3.  Ejecuta la aplicación:
-    ```bash
-    docker-compose up --build
-    ```
+Asegúrate de tener Docker instalado y luego ejecuta:
 
-Las aplicaciones estarán disponibles en:
+```bash
+docker-compose up --build
+```
 
-- **Frontend**: `http://localhost:3000`
-- **Backend**: `http://localhost:3001`
-- **Base de Datos**: `localhost:5434`
+### 3. Acceder a la App
+
+Una vez que termine de cargar, abre tu navegador en:
+
+- **Frontend**: [http://localhost:3000](http://localhost:3000)
+- **Backend (API)**: [http://localhost:3001](http://localhost:3001)
+- **Base de Datos**: `localhost:5434` (si usas un cliente externo)
 
 ### Detener
 
