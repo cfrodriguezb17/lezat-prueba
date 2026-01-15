@@ -7,10 +7,17 @@ Una aplicación de gestión de tareas con inteligencia artificial integrada.
 La forma más rápida de ejecutar la aplicación es utilizando Docker Compose.
 
 1.  Asegúrate de tener Docker y Docker Compose instalados.
-2.  (Opcional) Crea un archivo `.env` en el directorio raíz `Lezat/` para configurar tu API Key de Google AI:
+2.  **Configuración de IA (Opcional pero recomendado):**
+
+    Para habilitar las funciones de inteligencia artificial (resúmenes, priorización), necesitas una API Key de Google Gemini.
+
+    - Obtén tu clave gratis aquí: [Google AI Studio](https://aistudio.google.com/app/apikey)
+    - Crea un archivo llamado `.env` en la carpeta raíz del proyecto (`Lezat/`) y pega tu clave:
+
     ```bash
-    GOOGLE_AI_API_KEY=tu_clave_aqui
+    GOOGLE_AI_API_KEY=tu_clave_que_empieza_con_AIzr...
     ```
+
 3.  Ejecuta la aplicación:
     ```bash
     docker-compose up --build
