@@ -2,7 +2,34 @@
 
 Una aplicación de gestión de tareas con inteligencia artificial integrada.
 
-## 🚀 Quick Start
+## 🚀 Quick Start (Docker)
+
+La forma más rápida de ejecutar la aplicación es utilizando Docker Compose.
+
+1.  Asegúrate de tener Docker y Docker Compose instalados.
+2.  (Opcional) Crea un archivo `.env` en el directorio raíz `Lezat/` para configurar tu API Key de Google AI:
+    ```bash
+    GOOGLE_AI_API_KEY=tu_clave_aqui
+    ```
+3.  Ejecuta la aplicación:
+    ```bash
+    docker-compose up --build
+    ```
+
+Las aplicaciones estarán disponibles en:
+
+- **Frontend**: `http://localhost:3000`
+- **Backend**: `http://localhost:3001`
+- **Base de Datos**: `localhost:5434`
+
+### Detener
+
+```bash
+docker-compose down
+# Para borrar datos también: docker-compose down -v
+```
+
+## ⚙️ Configuración Manual (Desarrollo)
 
 ### Requisitos Previos
 
@@ -99,41 +126,4 @@ Lezat/
 │   ├── lib/              # APIs y tipos
 │   └── package.json
 └── README.md
-```
-
-## 🐳 Despliegue con Docker
-
-Puedes ejecutar toda la aplicación utilizando Docker Compose.
-
-1.  Asegúrate de tener Docker y Docker Compose instalados.
-
-2.  (Opcional) Crea un archivo `.env` en el directorio raíz `Lezat/` para configurar tu API Key de Google AI si deseas usar las funciones de IA:
-
-    ```bash
-    GOOGLE_AI_API_KEY=tu_clave_aqui
-    ```
-
-3.  Ejecuta la aplicación:
-    ```bash
-    docker-compose up --build
-    ```
-
-Las aplicaciones estarán disponibles en:
-
-- **Frontend**: `http://localhost:3000`
-- **Backend**: `http://localhost:3001`
-- **Base de Datos**: `localhost:5434`
-
-### Detener y Limpiar
-
-Para detener y eliminar los contenedores y redes creados:
-
-```bash
-docker-compose down
-```
-
-Si también deseas eliminar los volúmenes de base de datos (para reiniciar desde cero):
-
-```bash
-docker-compose down -v
 ```
