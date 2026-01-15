@@ -1,0 +1,65 @@
+# Dependencies
+node_modules
+/task-app-backend/node_modules
+/task-app-frontend/node_modules
+.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# Compiled output
+dist
+build
+/task-app-backend/dist
+/task-app-frontend/dist
+/task-app-frontend/.next/
+/task-app-frontend/out/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Tests
+coverage
+.nyc_output
+.pytest_cache/
+
+# IDEs
+.idea
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.sublime-workspace
+
+# Environment variables
+.env
+.env.*
+!.env.example
+!.env.local.example
+
+# Temporary
+.temp
+.tmp
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Python (Found traces in backend)
+__pycache__/
+*.py[cod]
+venv/

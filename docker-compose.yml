@@ -1,0 +1,57 @@
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: lezat-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: task_app
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5434:5432"
+    networks:
+      - lezat-network
+
+  backend:
+    build:
+      context: ./task-app-backend
+      dockerfile: Dockerfile
+    container_name: lezat-backend
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: postgres
+      DATABASE_NAME: task_app
+      PORT: 3001
+      CORS_ORIGIN: http://localhost:3000
+      # This variable should be set in a .env file in this directory or passed via command line
+      GOOGLE_AI_API_KEY: ${GOOGLE_AI_API_KEY:-your_google_ai_api_key}
+    ports:
+      - "3001:3001"
+    networks:
+      - lezat-network
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./task-app-frontend
+      dockerfile: Dockerfile
+    container_name: lezat-frontend
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:3001
+    ports:
+      - "3000:3000"
+    networks:
+      - lezat-network
+    restart: unless-stopped
+
+networks:
+  lezat-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
