@@ -2,45 +2,7 @@
 
 Una aplicación de gestión de tareas con inteligencia artificial integrada.
 
-## 🚀 Quick Start (Docker)
-
-Sigue estos pasos para tener la aplicación funcionando en minutos.
-
-### 1. Configurar la API de Google AI (Recomendado)
-
-Para que las funciones de IA (resúmenes, autocompletado) funcionen, necesitas una Google API Key:
-
-- **Obtén tu clave:** [Google AI Studio](https://aistudio.google.com/app/apikey) (es gratis).
-- **Crea el archivo:** En la raíz del proyecto (`Lezat/`), crea un archivo llamado `.env`.
-- **Pega tu clave:** Dentro del archivo `.env`, escribe lo siguiente:
-  ```bash
-  GOOGLE_AI_API_KEY=tu_clave_aqui_sin_comillas
-  ```
-
-### 2. Iniciar la aplicación
-
-Asegúrate de tener Docker instalado y luego ejecuta:
-
-```bash
-docker-compose up --build
-```
-
-### 3. Acceder a la App
-
-Una vez que termine de cargar, abre tu navegador en:
-
-- **Frontend**: [http://localhost:3000](http://localhost:3000)
-- **Backend (API)**: [http://localhost:3001](http://localhost:3001)
-- **Base de Datos**: `localhost:5434` (si usas un cliente externo)
-
-### Detener
-
-```bash
-docker-compose down
-# Para borrar datos también: docker-compose down -v
-```
-
-## ⚙️ Configuración Manual (Desarrollo)
+## 🚀 Quick Start
 
 ### Requisitos Previos
 
@@ -139,32 +101,43 @@ Lezat/
 └── README.md
 ```
 
-## 🚀 Despliegue
+## � Despliegue con Docker (Recomendado para producción local)
 
-Tienes dos formas principales de desplegar este proyecto:
+La forma más sencilla de ejecutar la aplicación completa sin instalar dependencias manuales.
 
-### Opción A: Despliegue en la Nube (Recomendado)
+### 1. Configurar la API de Google AI
 
-Esta es la opción más sencilla para aplicaciones modernas:
+Para habilitar las funciones de IA, necesitas una Google API Key:
 
-- **Frontend**: Despliega en **Vercel** o **Netlify**. Solo tienes que conectar tu repositorio y apuntar a la carpeta `task-app-frontend`.
-- **Backend**: Despliega en **Railway** o **Render**. Conecta tu repo y apunta a la carpeta `task-app-backend`.
-- **Base de Datos**: Usa **Railway PostgreSQL** o **Supabase**.
+- **Obtén tu clave:** [Google AI Studio](https://aistudio.google.com/app/apikey) (es gratis).
+- **Crea el archivo:** En la raíz del proyecto (`Lezat/`), crea un archivo llamado `.env`.
+- **Pega tu clave:** Dentro del archivo `.env`, escribe lo siguiente:
+  ```bash
+  GOOGLE_AI_API_KEY=tu_clave_aqui
+  ```
 
-### Opción B: Servidor Propio (VPS) con Docker
+### 2. Iniciar con Docker Compose
 
-Si tienes un servidor (DigitalOcean, AWS, Linode):
+```bash
+docker-compose up --build
+```
 
-1.  Instala Docker y Git en tu servidor.
-2.  Clona tu repositorio:
-    ```bash
-    git clone https://github.com/tu-usuario/nombre-repo.git
-    cd nombre-repo
-    ```
-3.  Crea el archivo `.env` con tu `GOOGLE_AI_API_KEY`.
-4.  Levanta todo con un comando:
-    ```bash
-    docker-compose up -d --build
-    ```
+Las aplicaciones estarán disponibles en:
 
-El flag `-d` hará que la aplicación corra en segundo plano permanentemente.
+- **Frontend**: `http://localhost:3000`
+- **Backend**: `http://localhost:3001`
+
+### Detener
+
+```bash
+docker-compose down
+# Para borrar datos: docker-compose down -v
+```
+
+## 🚀 Otros Métodos de Despliegue
+
+### Despliegue en la Nube
+
+- **Frontend**: Vercel / Netlify (apuntar a `task-app-frontend`).
+- **Backend**: Railway / Render (apuntar a `task-app-backend`).
+- **Base de Datos**: Railway PostgreSQL / Supabase.
